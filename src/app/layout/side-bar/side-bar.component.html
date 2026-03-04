@@ -1,0 +1,29 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark vh-100">
+  <a
+    href="/"
+    class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+  >
+    <span class="fs-5 fw-semibold">Internet Banking</span>
+  </a>
+
+  <hr />
+
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item" *ngFor="let item of menuItems">
+      <button
+        type="button"
+        class="nav-link text-white w-100 text-start"
+        (click)="irPara(item.page)"
+        [class.active]="(currentPage$ | async) === item.page"
+      >
+        <i [class]="item.icon"></i>
+        {{ item.label }}
+      </button>
+    </li>
+  </ul>
+  <hr />
+
+  <div>
+    <button class="btn btn-outline-light w-100">Sair</button>
+  </div>
+</div>

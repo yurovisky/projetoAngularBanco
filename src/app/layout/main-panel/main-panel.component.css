@@ -1,0 +1,88 @@
+.main-panel {
+  flex: 1;
+  padding: 24px;
+  background-color: #f8fafc;
+  overflow-y: auto;
+}
+
+/* ===== Cards ===== */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.card h4 {
+  margin: 0;
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.card .value {
+  margin-top: 8px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.value.positive {
+  color: #16a34a;
+}
+
+.value.negative {
+  color: #dc2626;
+}
+
+/* ===== Tabela ===== */
+
+.table-container {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.table-container h4 {
+  margin: 0 0 16px 0;
+  font-size: 15px;
+  color: #0f172a;
+}
+
+.transactions {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transactions th {
+  text-align: left;
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 500;
+  padding: 12px 8px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.transactions td {
+  padding: 14px 8px;
+  font-size: 14px;
+  color: #0f172a;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.transactions tr:last-child td {
+  border-bottom: none;
+}
+
+.transactions tr:hover {
+  background-color: #f1f5f9;
+}

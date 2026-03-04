@@ -1,0 +1,105 @@
+{
+  "contas": [
+    {
+      "id": "1",
+      "tipo": "corrente",
+      "saldo": 44147.15
+    }
+  ],
+  "transacoes": [
+    {
+      "id": "1a2e",
+      "data": "2026-02-01T14:29:08.683Z",
+      "tipo": "saída",
+      "valor": 500.85,
+      "descricao": "Pix para 07075937600 (CPF) - pix cartão.",
+      "contaId": 1,
+      "categoria": "pix"
+    },
+    {
+      "id": "3361",
+      "data": "2026-02-28T14:30:33.282Z",
+      "tipo": "saída",
+      "valor": 90,
+      "descricao": "Pix para yurovisky@gmail.com (Email) - teste",
+      "contaId": 1,
+      "categoria": "pix"
+    },
+    {
+      "id": "f646",
+      "data": "2026-03-01T14:52:07.067Z",
+      "tipo": "saída",
+      "valor": 2,
+      "descricao": "Pix para emailgmail.com (Outro) - aluguel",
+      "contaId": 1,
+      "categoria": "pix"
+    },
+    {
+      "id": "1",
+      "data": "2026-03-01T14:52:07.067Z",
+      "tipo": "entrada",
+      "valor": 4000,
+      "descricao": "crédito salário",
+      "contaId": 1,
+      "categoria": "depósito"
+    },
+    {
+      "id": "dc5d",
+      "data": "2026-03-03T23:19:54.546Z",
+      "tipo": "saída",
+      "valor": 10,
+      "descricao": "Pix para teste@gmail.com (Email) - teste",
+      "contaId": 1,
+      "categoria": "pix"
+    },
+    {
+      "id": "7e52",
+      "data": "2026-03-04T11:04:45.907Z",
+      "tipo": "entrada",
+      "valor": 20000,
+      "descricao": "Empréstimo pessoal - R$ 20000.00",
+      "contaId": 1,
+      "categoria": "emprestimo"
+    }
+  ],
+  "emprestimos": [
+    {
+      "id": "1",
+      "valor": 5000,
+      "saldoDevedor": 5000,
+      "parcelas": 12,
+      "taxaJuros": 2,
+      "data": "2024-06-15",
+      "status": "ATIVO",
+      "contaId": 1,
+      "tipo": "pessoal",
+      "tipoId": 1
+    },
+    {
+      "id": "1588",
+      "valor": 20000,
+      "parcelas": 15,
+      "taxaJuros": 2,
+      "saldoDevedor": 20000,
+      "data": "2026-03-04T11:04:45.894Z",
+      "status": "ativo",
+      "contaId": 1,
+      "tipo": "pessoal",
+      "tipoId": 1
+    }
+  ],
+  "cartoes": [
+    {
+      "id": "1",
+      "numero": "1234 5678 9012 3456",
+      "validade": "12/25",
+      "cvv": "123",
+      "tipo": "crédito",
+      "dependenteId": 0,
+      "bandeira": "Visa",
+      "limiteAtual": 8000,
+      "limiteTotal": 10000,
+      "saldo": 1500
+    }
+  ]
+}

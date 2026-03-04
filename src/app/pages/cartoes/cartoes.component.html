@@ -1,0 +1,113 @@
+<section class="container-fluid py-4">
+  <!-- ===== Resumo do Cartão ===== -->
+  <div class="row g-4 mb-4">
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h6 class="text-muted">Limite Total</h6>
+          <h4 class="fw-bold">R$ 8.000,00</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h6 class="text-muted">Valor Utilizado</h6>
+          <h4 class="fw-bold text-danger">R$ 2.450,90</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h6 class="text-muted">Limite Disponível</h6>
+          <h4 class="fw-bold text-success">R$ 5.549,10</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Dados do Cartão ===== -->
+  <div class="card shadow-sm border-0 mb-4">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="mb-0">Meu Cartão</h5>
+        <span class="badge bg-secondary">Visa Gold</span>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-6">
+          <small class="text-muted">Número do cartão</small>
+          <div class="fw-semibold">**** **** **** 4587</div>
+        </div>
+
+        <div class="col-md-3">
+          <small class="text-muted">Validade</small>
+          <div class="fw-semibold">12/29</div>
+        </div>
+
+        <div class="col-md-3">
+          <small class="text-muted">Status</small>
+          <div class="fw-semibold text-success">Ativo</div>
+        </div>
+
+        <div class="col-md-6">
+          <small class="text-muted">Titular</small>
+          <div class="fw-semibold">Yuri Tampa</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Últimas Faturas ===== -->
+  <div class="card shadow-sm border-0">
+    <div class="card-body">
+      <h5 class="mb-3">Últimas Faturas</h5>
+
+      <div class="table-responsive">
+        <table class="table align-middle mb-0">
+          <thead class="table-light">
+            <tr>
+              <th>Mês</th>
+              <th>Vencimento</th>
+              <th>Valor</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Janeiro/2026</td>
+              <td>10/02/2026</td>
+              <td>R$ 2.450,90</td>
+              <td><span class="badge bg-danger">Em aberto</span></td>
+            </tr>
+            <tr>
+              <td>Dezembro/2025</td>
+              <td>10/01/2026</td>
+              <td>R$ 1.980,30</td>
+              <td><span class="badge bg-success">Paga</span></td>
+            </tr>
+            <tr>
+              <td>Novembro/2025</td>
+              <td>10/12/2025</td>
+              <td>R$ 1.520,75</td>
+              <td><span class="badge bg-success">Paga</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="row g-3 align-items-end mb-3">
+    <div class="col-2">
+      <button
+        class="btn btn-primary w-100"
+        (click)="routerService.setToPage(Pages.MEUS_CARTOES)"
+      >
+        Visualizar Cartões
+      </button>
+    </div>
+  </div>
+</section>

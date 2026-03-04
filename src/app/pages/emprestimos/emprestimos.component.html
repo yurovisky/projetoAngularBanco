@@ -1,0 +1,116 @@
+<div class="container-fluid py-4">
+  <div class="mb-4">
+    <h3 class="fw-semibold">Empréstimos</h3>
+    <p class="text-muted small mb-0">
+      Gerencie seus contratos ou simule novas opções de crédito.
+    </p>
+  </div>
+
+  <div class="row g-3">
+    <div class="col-md-6" *ngFor="let emprestimo of emprestimos">
+      <div class="border rounded p-3 h-100">
+        <div class="d-flex justify-content-between">
+          <div>
+            <div class="fw-semibold">{{ emprestimo.tipo }}</div>
+            <small class="text-muted"> Contrato #{{ emprestimo.id }} </small>
+          </div>
+
+          <span
+            class="badge"
+            [ngClass]="{
+              'bg-warning text-dark': emprestimo.status === 'ATIVO',
+              'bg-success': emprestimo.status === 'QUITADO',
+              'bg-danger': emprestimo.status === 'ATRASADO',
+            }"
+          >
+            {{ emprestimo.status }}
+          </span>
+        </div>
+
+        <hr />
+
+        <div class="small text-muted">Saldo devedor</div>
+        <div class="fw-bold fs-5">
+          R$ {{ emprestimo.saldoDevedor | number: "1.2-2" }}
+        </div>
+
+        <div class="small text-muted mt-2">Próxima parcela</div>
+        <!-- <div>
+          {{ emprestimo.proximaParcelaData | date: "dd/MM/yyyy" }} - R$
+          {{ emprestimo.proximaParcelaValor | number: "1.2-2" }}
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="card shadow-sm border-0">
+    <div class="card-body">
+      <h5 class="fw-semibold mb-4">
+        <i class="fa-solid fa-plus me-2 text-success"></i>
+        Contratar novo crédito
+      </h5>
+
+      <div class="row g-4">
+        <div class="col-6 col-md-3">
+          <div class="card text-center border h-100 shadow-sm quick-option">
+            <div class="card-body py-4">
+              <button
+                class="btn"
+                (click)="routerService.setToPage(Pages.EMPRESTIMOS_PESSOAIS)"
+              >
+                <i
+                  class="fa-solid fa-hand-holding-dollar fa-2x text-primary mb-3"
+                ></i>
+                <div class="fw-semibold">Pessoal</div>
+
+                <small class="text-muted">Dinheiro rápido</small>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <div
+            class="card text-center border h-100 shadow-sm quick-option"
+            [class.opacity-50]="true"
+            [class.pointer-events-none]="true"
+          >
+            <div class="card-body py-4">
+              <i class="fa-solid fa-house fa-2x text-success mb-3"></i>
+              <div class="fw-semibold" aria-readonly="true">Imobiliário</div>
+              <small class="text-muted">Casa própria</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <div
+            class="card text-center border h-100 shadow-sm quick-option"
+            [class.opacity-50]="true"
+            [class.pointer-events-none]="true"
+          >
+            <div class="card-body py-4">
+              <i class="fa-solid fa-users fa-2x text-warning mb-3"></i>
+              <div class="fw-semibold">Consórcio</div>
+              <small class="text-muted">Planejamento</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <div
+            class="card text-center border h-100 shadow-sm quick-option"
+            [class.opacity-50]="true"
+            [class.pointer-events-none]="true"
+          >
+            <div class="card-body py-4">
+              <i class="fa-solid fa-car fa-2x text-danger mb-3"></i>
+              <div class="fw-semibold">Veículo</div>
+              <small class="text-muted">Financie seu carro</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="container py-4">
+  <h4 class="mb-4">Enviar Pix</h4>
+
+  <div class="mb-3">
+    <label for="pixKey" class="form-label">Chave Pix</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Digite a chave Pix"
+      [(ngModel)]="chave"
+      (input)="onChaveChange()"
+    />
+    <small class="text-muted">Tipo de chave: {{ tipoChave }}</small>
+    <div class="form-text">CPF, e-mail, telefone ou chave aleatória</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="pixValue" class="form-label">Valor</label>
+    <input
+      type="number"
+      class="form-control"
+      id="pixValue"
+      placeholder="R$ 0,00"
+      min="0"
+      step="0.01"
+      [(ngModel)]="valor"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="pixDesc" class="form-label">Descrição (opcional)</label>
+    <input
+      type="text"
+      class="form-control"
+      id="pixDesc"
+      placeholder="Ex: Aluguel, Presente..."
+      [(ngModel)]="descricao"
+    />
+  </div>
+
+  <button type="button" class="btn btn-primary w-100" (click)="enviarPix()">
+    Confirmar Pix
+  </button>
+</div>

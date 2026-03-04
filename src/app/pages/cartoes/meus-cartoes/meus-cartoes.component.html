@@ -1,0 +1,124 @@
+<section class="container-fluid py-4">
+  <div class="row">
+    <div
+      *ngFor="let cartao of cartoes"
+      class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"
+    >
+      <div class="card shadow-sm border-0 h-100">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h6 class="mb-0">{{ cartao.numero }}</h6>
+            <span class="badge bg-secondary">
+              {{ cartao.bandeira }}
+            </span>
+          </div>
+
+          <div class="mb-3">**** **** **** {{ cartao.numero.slice(-4) }}</div>
+
+          <div class="d-flex justify-content-between mb-3">
+            <div>
+              <small class="text-muted">Limite</small><br />
+              <strong>{{ cartao.limiteAtual | currency: "BRL" }}</strong>
+            </div>
+
+            <div>
+              <small class="text-muted">Saldo</small><br />
+              <strong>{{ cartao.saldo | currency: "BRL" }}</strong>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+              <button
+                class="btn btn-sm btn-primary"
+                (click)="editarLimite(cartao)"
+              >
+                Editar Limite
+              </button>
+            </div>
+            <div class="col-6 text-end">
+              <button
+                class="btn btn-sm btn-danger"
+                (click)="excluirCartao(cartao)"
+              >
+                Excluir Cartão
+              </button>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="cartaoEmEdicao === cartao" class="mt-3">
+          <div class="input-group input-group-sm">
+            <input
+              type="number"
+              class="form-control"
+              [formControl]="novoLimiteControl"
+            />
+
+            <button
+              class="btn btn-success"
+              (click)="confirmarEdicaoLimite(cartao)"
+            >
+              Salvar
+            </button>
+
+            <button class="btn btn-secondary" (click)="fecharEdicao()">
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-3">
+      <button class="btn btn-primary w-100" (click)="abrirFormNovoCartao()">
+        Novo Cartão
+      </button>
+    </div>
+  </div>
+  <div *ngIf="mostrarFormNovoCartao" class="card p-3 mt-3 shadow-sm">
+    <form [formGroup]="novoCartaoForm">
+      <div class="row g-3">
+        <div class="col-md-4">
+          <label class="form-label">Tipo</label>
+          <select class="form-select" formControlName="tipo">
+            <option value="credito">Crédito</option>
+            <option value="debito">Débito</option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Bandeira</label>
+          <select class="form-select" formControlName="bandeira">
+            <option value="Visa">Visa</option>
+            <option value="Mastercard">Mastercard</option>
+            <option value="Elo">Elo</option>
+            <option value="Amex">Amex</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Titular ou Dependente</label>
+          <select class="form-select" formControlName="dependenteId">
+            <option [ngValue]="null">Titular</option>
+            <option [ngValue]="1">Filha</option>
+            <option [ngValue]="2">Filho</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mt-4 d-flex justify-content-end">
+        <button type="button" class="btn btn-success" (click)="criarCartao()">
+          Criar Cartão
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="fecharFormNovoCartao()"
+        >
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

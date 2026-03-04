@@ -1,0 +1,16 @@
+<ng-container [ngSwitch]="currentPage$ | async">
+  <app-dashboard *ngSwitchCase="Pages.DASHBOARD"></app-dashboard>
+  <app-transactions-list *ngSwitchCase="Pages.EXTRATO"></app-transactions-list>
+  <app-emprestimos *ngSwitchCase="Pages.EMPRESTIMOS"></app-emprestimos>
+  <app-emprestimos-pessoais
+    *ngSwitchCase="Pages.EMPRESTIMOS_PESSOAIS"
+  ></app-emprestimos-pessoais>
+  <app-investimentos *ngSwitchCase="Pages.INVESTIMENTOS"></app-investimentos>
+  <app-transferencias *ngSwitchCase="Pages.TRANSFERENCIAS"></app-transferencias>
+  <app-cartoes *ngSwitchCase="Pages.CARTOES"></app-cartoes>
+  <app-meus-cartoes *ngSwitchCase="Pages.MEUS_CARTOES"></app-meus-cartoes>
+  <app-pix *ngSwitchCase="Pages.PIX"></app-pix>
+  <app-outras-transferencias
+    *ngSwitchCase="Pages.TRANSFERENCIAS_OUTRAS"
+  ></app-outras-transferencias>
+</ng-container>

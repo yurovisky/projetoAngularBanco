@@ -1,0 +1,135 @@
+<section class="container-fluid py-4 bg-light min-vh-100">
+  <!-- Cards -->
+  <div class="row g-3 mb-4">
+    <div class="col-12 col-md-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h6 class="text-secondary">Saldo</h6>
+          <h4 class="fw-semibold">
+            {{ saldo | currency: "BRL" : "symbol" : "1.2-2" }}
+          </h4>
+        </div>
+        <div *ngIf="mensagemErro" class="alert alert-danger">
+          {{ mensagemErro }}
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h6 class="text-secondary">Entradas</h6>
+          <h4 class="text-success fw-semibold">
+            {{ entradas | currency: "BRL" : "symbol" : "1.2-2" }}
+          </h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h6 class="text-secondary">Saídas</h6>
+          <h4 class="text-danger fw-semibold">
+            {{ saidas | currency: "BRL" : "symbol" : "1.2-2" }}
+          </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-3 mb-4">
+    <div class="col-6 col-md-3">
+      <button
+        type="button"
+        class="card text-center shadow-sm border-0 h-100 quick-card w-100"
+        (click)="routerService.setToPage(Pages.PIX)"
+      >
+        <div class="card-body py-3">
+          <i class="fa-solid fa-bolt fa-lg mb-2 text-primary"></i>
+          <div class="small fw-semibold">PIX</div>
+        </div>
+      </button>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <button
+        type="button"
+        class="card text-center shadow-sm border-0 h-100 quick-card w-100"
+        (click)="routerService.setToPage(Pages.INVESTIMENTOS)"
+      >
+        <div class="card-body py-3">
+          <i class="fa-solid fa-chart-line fa-lg mb-2 text-success"></i>
+          <div class="small fw-semibold">Investir</div>
+        </div>
+      </button>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <button
+        type="button"
+        class="card text-center shadow-sm border-0 h-100 quick-card w-100"
+        (click)="routerService.setToPage(Pages.CARTOES)"
+      >
+        <div class="card-body py-3">
+          <i class="fa-solid fa-credit-card fa-lg mb-2 text-warning"></i>
+          <div class="small fw-semibold">Cartões</div>
+        </div>
+      </button>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <button
+        type="button"
+        class="card text-center shadow-sm border-0 h-100 quick-card w-100"
+        (click)="routerService.setToPage(Pages.EXTRATO)"
+      >
+        <div class="card-body py-3">
+          <i class="fa-solid fa-file-invoice-dollar fa-lg mb-2 text-danger"></i>
+          <div class="small fw-semibold">Extrato</div>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <!-- Tabela -->
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h6 class="fw-semibold mb-3">Últimas movimentações</h6>
+
+      <div class="table-responsive">
+        <table class="table align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Data</th>
+              <th>Descrição</th>
+              <th>Tipo</th>
+              <th class="text-end">Valor</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let mov of movimentacoes">
+              <td>{{ mov.data | date: "dd/MM/yyyy" }}</td>
+              <td>{{ mov.descricao }}</td>
+              <td>{{ mov.tipo }}</td>
+
+              <td
+                class="text-end fw-semibold"
+                [ngClass]="{
+                  'text-success': mov.tipo === 'entrada',
+                  'text-danger': mov.tipo === 'saída',
+                }"
+              >
+                {{ mov.valor | currency: "BRL" }}
+              </td>
+            </tr>
+            <div *ngIf="mensagemErro" class="alert alert-danger">
+              {{ mensagemErro }}
+            </div>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

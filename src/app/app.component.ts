@@ -1,12 +1,29 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './layout/header/header.component';
+import { MainPanelComponent } from './layout/main-panel/main-panel.component';
+import { SideBarComponent } from './layout/side-bar/side-bar.component';
+import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [
+    CommonModule,
+    HeaderComponent,
+    MainPanelComponent,
+    SideBarComponent,
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'taskFlow';
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
+  obs = new Observable((observer) => {
+    observer.next(1);
+  });
+
+  ngOnInit(): void {}
 }
