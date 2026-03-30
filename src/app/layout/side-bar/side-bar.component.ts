@@ -1,58 +1,46 @@
-import { Component, EventEmitter, Inject, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Pages } from '../../constants/pages.enum';
-import { MenuItem } from '../../Models/menu_model';
-import { RouterService } from '../../core/services/router/router.service';
-import { Observable, Subscribable } from 'rxjs';
+import { RouterModule } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-side-bar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule, TranslatePipe],
   templateUrl: './side-bar.component.html',
   styleUrls: ['./side-bar.component.css'],
 })
 export class SideBarComponent {
-  currentPage$: Observable<Pages>;
-
-  constructor(private routerService: RouterService) {
-    this.currentPage$ = this.routerService.currentPage$;
-  }
-  //criando os itens de menu usando a interface MenuItem
-  menuItems: MenuItem[] = [
+  menuItems = [
     {
-      label: 'Dashboard',
+      label: 'MENU.DASHBOARD',
       icon: 'fa-solid fa-chart-line',
-      page: Pages.DASHBOARD,
+      route: '/dashboard',
     },
     {
-      label: 'Extrato',
+      label: 'MENU.EXTRATO',
       icon: 'fa-solid fa-file-invoice-dollar',
-      page: Pages.EXTRATO,
+      route: '/transacoes',
     },
     {
-      label: 'Emprestimos',
+      label: 'MENU.EMPRESTIMOS',
       icon: 'fa-solid fa-landmark',
-      page: Pages.EMPRESTIMOS,
+      route: '/emprestimo',
     },
     {
-      label: 'Investimentos',
+      label: 'MENU.INVESTIMENTOS',
       icon: 'fa-solid fa-money-bill-trend-up',
-      page: Pages.INVESTIMENTOS,
+      route: '/investimentos',
     },
     {
-      label: 'Transferências',
+      label: 'MENU.TRANSFERENCIAS',
       icon: 'fa-solid fa-arrow-right-arrow-left',
-      page: Pages.TRANSFERENCIAS,
+      route: '/transferencia',
     },
     {
-      label: 'Cartões',
+      label: 'MENU.CARTOES',
       icon: 'fa-solid fa-credit-card',
-      page: Pages.CARTOES,
+      route: '/cartoes',
     },
   ];
-
-  irPara(page: Pages): void {
-    this.routerService.setToPage(page);
-  }
 }

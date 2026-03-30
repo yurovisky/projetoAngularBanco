@@ -1,3 +1,4 @@
+<router-outlet></router-outlet>
 <div class="container py-4">
   <h3 class="mb-4">Transferências</h3>
 
@@ -13,10 +14,7 @@
             </p>
           </div>
 
-          <button
-            class="btn btn-primary w-100 mt-3"
-            (click)="routerService.setToPage(Pages.PIX)"
-          >
+          <button class="btn btn-primary w-100 mt-3" routerLink="pix">
             Fazer PIX
           </button>
         </div>
@@ -35,7 +33,7 @@
 
           <button
             class="btn btn-success w-100 mt-3"
-            (click)="routerService.setToPage(Pages.TRANSFERENCIAS_OUTRAS)"
+            routerLink="outras-transferencias"
           >
             Transferir
           </button>

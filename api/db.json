@@ -60,6 +60,24 @@
       "descricao": "Empréstimo pessoal - R$ 20000.00",
       "contaId": 1,
       "categoria": "emprestimo"
+    },
+    {
+      "id": "c411",
+      "data": "2026-03-29T21:57:00.197Z",
+      "tipo": "saída",
+      "valor": 1000,
+      "descricao": "Pix para 65765765765 (CPF) - teste",
+      "contaId": 1,
+      "categoria": "pix"
+    },
+    {
+      "id": "902e",
+      "data": "2026-03-29T22:04:39.349Z",
+      "tipo": "entrada",
+      "valor": 1000,
+      "descricao": "Empréstimo pessoal - R$ 1000.00",
+      "contaId": 1,
+      "categoria": "emprestimo"
     }
   ],
   "emprestimos": [
@@ -82,6 +100,18 @@
       "taxaJuros": 2,
       "saldoDevedor": 20000,
       "data": "2026-03-04T11:04:45.894Z",
+      "status": "ativo",
+      "contaId": 1,
+      "tipo": "pessoal",
+      "tipoId": 1
+    },
+    {
+      "id": "9a16",
+      "valor": 1000,
+      "parcelas": 5,
+      "taxaJuros": 2,
+      "saldoDevedor": 1000,
+      "data": "2026-03-29T22:04:39.324Z",
       "status": "ativo",
       "contaId": 1,
       "tipo": "pessoal",

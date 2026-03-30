@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, computed } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -23,12 +23,15 @@ export class EmprestimosPessoaisComponent {
     private transacoesService: TransacoesService,
   ) {}
   private snackBar: MatSnackBar = new MatSnackBar();
-  resultadoSimulacao?: {
-    valorTotal: string;
-    valorParcela: string;
-  };
+  resultadoSimulacao = signal<
+    | {
+        valorTotal: string;
+        valorParcela: string;
+      }
+    | undefined
+  >(undefined);
 
-  podeSolicitar = false;
+  podeSolicitar = computed(() => !!this.resultadoSimulacao());
 
   emprestimoForm!: FormGroup;
 
@@ -66,11 +69,10 @@ export class EmprestimosPessoaisComponent {
 
     const valorParcela = valorTotal / parcelas;
 
-    this.resultadoSimulacao = {
+    this.resultadoSimulacao.set({
       valorTotal: valorTotal.toFixed(2),
       valorParcela: valorParcela.toFixed(2),
-    };
-    this.podeSolicitar = true;
+    });
   }
 
   solicitarEmprestimo() {

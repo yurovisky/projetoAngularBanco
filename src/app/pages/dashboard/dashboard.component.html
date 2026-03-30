@@ -6,11 +6,11 @@
         <div class="card-body">
           <h6 class="text-secondary">Saldo</h6>
           <h4 class="fw-semibold">
-            {{ saldo | currency: "BRL" : "symbol" : "1.2-2" }}
+            {{ saldo() | currency: "BRL" : "symbol" : "1.2-2" }}
           </h4>
         </div>
-        <div *ngIf="mensagemErro" class="alert alert-danger">
-          {{ mensagemErro }}
+        <div *ngIf="mensagemErro()" class="alert alert-danger">
+          {{ mensagemErro() }}
         </div>
       </div>
     </div>
@@ -20,7 +20,7 @@
         <div class="card-body">
           <h6 class="text-secondary">Entradas</h6>
           <h4 class="text-success fw-semibold">
-            {{ entradas | currency: "BRL" : "symbol" : "1.2-2" }}
+            {{ entradas() | currency: "BRL" : "symbol" : "1.2-2" }}
           </h4>
         </div>
       </div>
@@ -31,7 +31,7 @@
         <div class="card-body">
           <h6 class="text-secondary">Saídas</h6>
           <h4 class="text-danger fw-semibold">
-            {{ saidas | currency: "BRL" : "symbol" : "1.2-2" }}
+            {{ saidas() | currency: "BRL" : "symbol" : "1.2-2" }}
           </h4>
         </div>
       </div>
@@ -43,7 +43,7 @@
       <button
         type="button"
         class="card text-center shadow-sm border-0 h-100 quick-card w-100"
-        (click)="routerService.setToPage(Pages.PIX)"
+        routerLink="/transferencia/pix"
       >
         <div class="card-body py-3">
           <i class="fa-solid fa-bolt fa-lg mb-2 text-primary"></i>
@@ -56,7 +56,7 @@
       <button
         type="button"
         class="card text-center shadow-sm border-0 h-100 quick-card w-100"
-        (click)="routerService.setToPage(Pages.INVESTIMENTOS)"
+        routerLink="/investimentos"
       >
         <div class="card-body py-3">
           <i class="fa-solid fa-chart-line fa-lg mb-2 text-success"></i>
@@ -69,7 +69,7 @@
       <button
         type="button"
         class="card text-center shadow-sm border-0 h-100 quick-card w-100"
-        (click)="routerService.setToPage(Pages.CARTOES)"
+        routerLink="/cartoes"
       >
         <div class="card-body py-3">
           <i class="fa-solid fa-credit-card fa-lg mb-2 text-warning"></i>
@@ -82,7 +82,7 @@
       <button
         type="button"
         class="card text-center shadow-sm border-0 h-100 quick-card w-100"
-        (click)="routerService.setToPage(Pages.EXTRATO)"
+        routerLink="/transacoes"
       >
         <div class="card-body py-3">
           <i class="fa-solid fa-file-invoice-dollar fa-lg mb-2 text-danger"></i>
@@ -91,7 +91,6 @@
       </button>
     </div>
   </div>
-
   <!-- Tabela -->
   <div class="card shadow-sm">
     <div class="card-body">
@@ -109,7 +108,7 @@
           </thead>
 
           <tbody>
-            <tr *ngFor="let mov of movimentacoes">
+            <tr *ngFor="let mov of movimentacoes()">
               <td>{{ mov.data | date: "dd/MM/yyyy" }}</td>
               <td>{{ mov.descricao }}</td>
               <td>{{ mov.tipo }}</td>
@@ -124,8 +123,8 @@
                 {{ mov.valor | currency: "BRL" }}
               </td>
             </tr>
-            <div *ngIf="mensagemErro" class="alert alert-danger">
-              {{ mensagemErro }}
+            <div *ngIf="mensagemErro()" class="alert alert-danger">
+              {{ mensagemErro() }}
             </div>
           </tbody>
         </table>

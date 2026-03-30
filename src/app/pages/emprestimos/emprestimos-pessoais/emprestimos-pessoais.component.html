@@ -59,16 +59,16 @@
       <small class="text-muted"> Taxa fixa de 2% ao mês </small>
     </div>
   </div>
-  <div *ngIf="resultadoSimulacao">
-    <p>Total: R$ {{ resultadoSimulacao.valorTotal }}</p>
-    <p>Parcela: R$ {{ resultadoSimulacao.valorParcela }}</p>
+  <div *ngIf="resultadoSimulacao()">
+    <p>Total: R$ {{ resultadoSimulacao()?.valorTotal }}</p>
+    <p>Parcela: R$ {{ resultadoSimulacao()?.valorParcela }}</p>
   </div>
   <div class="mt-4 d-flex gap-2">
     <button type="submit" class="btn btn-warning">Calcular</button>
 
     <button
       class="btn btn-success"
-      [disabled]="emprestimoForm.invalid || !podeSolicitar"
+      [disabled]="emprestimoForm.invalid || !podeSolicitar()"
       (click)="solicitarEmprestimo()"
     >
       Solicitar

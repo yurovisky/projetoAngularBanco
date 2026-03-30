@@ -10,7 +10,7 @@
       [(ngModel)]="chave"
       (input)="onChaveChange()"
     />
-    <small class="text-muted">Tipo de chave: {{ tipoChave }}</small>
+    <small class="text-muted">Tipo de chave: {{ tipoChave() }}</small>
     <div class="form-text">CPF, e-mail, telefone ou chave aleatória</div>
   </div>
 

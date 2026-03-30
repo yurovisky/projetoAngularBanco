@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ContaService } from '../../../core/services/conta/conta.service';
@@ -15,10 +15,10 @@ import Swal from 'sweetalert2';
   styleUrl: './pix.component.css',
 })
 export class PixComponent {
-  chave: string = '';
-  valor: number | null = null;
-  descricao: string = '';
-  tipoChave: string = '';
+  chave = signal<string>('');
+  valor = signal<number | null>(null);
+  descricao = signal<string>('');
+  tipoChave = computed(() => this.detectTipoChave(this.chave()));
 
   constructor(
     private contaservice: ContaService,
@@ -26,12 +26,12 @@ export class PixComponent {
   ) {}
 
   onChaveChange(): void {
-    this.tipoChave = this.detectTipoChave(this.chave);
+    // tipoChave is computed, no need to set it manually
   }
 
   enviarPix(): void {
-    const valorPix = this.valor;
-    if (!this.chave || !valorPix || valorPix <= 0) {
+    const valorPix = this.valor();
+    if (!this.chave() || !valorPix || valorPix <= 0) {
       alert('Por favor, preencha a chave e o valor corretamente.');
       return;
     }
@@ -39,10 +39,10 @@ export class PixComponent {
     Swal.fire({
       title: 'Confirmar envio?',
       html: `
-      <p><strong>Chave:</strong> ${this.chave}</p>
-      <p><strong>Tipo:</strong> ${this.tipoChave}</p>
+      <p><strong>Chave:</strong> ${this.chave()}</p>
+      <p><strong>Tipo:</strong> ${this.tipoChave()}</p>
       <p><strong>Valor:</strong> R$ ${valorPix.toFixed(2)}</p>
-      <p><strong>Descrição:</strong> ${this.descricao}</p>
+      <p><strong>Descrição:</strong> ${this.descricao()}</p>
     `,
       icon: 'question',
       showCancelButton: true,
@@ -61,7 +61,7 @@ export class PixComponent {
       data: new Date().toISOString(),
       tipo: 'saída',
       valor: valorPix,
-      descricao: `Pix para ${this.chave} (${this.tipoChave}) - ${this.descricao}`,
+      descricao: `Pix para ${this.chave()} (${this.tipoChave()}) - ${this.descricao()}`,
       contaId: 1,
       categoria: 'pix',
     };
@@ -76,9 +76,9 @@ export class PixComponent {
             alert('Erro ao atualizar saldo: ' + err.message);
           },
         });
-        this.chave = '';
-        this.valor = 0;
-        this.descricao = '';
+        this.chave.set('');
+        this.valor.set(0);
+        this.descricao.set('');
       },
       error: (err) => {
         alert('Erro ao enviar Pix: ' + err.message);

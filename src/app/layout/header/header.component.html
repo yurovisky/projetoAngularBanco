@@ -1,14 +1,46 @@
 <header class="custom-header-bg text-white px-4 py-3 shadow-sm">
   <div class="d-flex justify-content-between align-items-center">
-
     <div class="d-flex align-items-center">
       <i class="fa-brands fa-affiliatetheme fa-xl me-2 text-secondary"></i>
       Nosso Banco
     </div>
 
-    <div>
-      Bem-vindo Yuri
-    </div>
+    <div>Bem-vindo Yuri</div>
 
+    <div class="d-flex align-items-center gap-2 user-actions">
+      <button
+        class="btn btn-outline-secondary btn-sm"
+        (click)="mudarIdioma('pt-br')"
+        title="Português Brasil"
+      >
+        🇧🇷
+      </button>
+
+      <button
+        class="btn btn-outline-secondary btn-sm"
+        (click)="mudarIdioma('es')"
+        title="Español"
+      >
+        🇪🇸
+      </button>
+
+      <button
+        class="btn btn-outline-secondary btn-sm"
+        title="Alternar tema"
+        (click)="toggleTheme()"
+      >
+        <i class="fa-solid" [ngClass]="isLight ? 'fa-sun' : 'fa-moon'"></i>
+      </button>
+
+      @if (authService.autenticado()) {
+        <button
+          class="btn btn-outline-danger btn-sm"
+          title="Sair"
+          (click)="logout()"
+        >
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
+      }
+    </div>
   </div>
 </header>

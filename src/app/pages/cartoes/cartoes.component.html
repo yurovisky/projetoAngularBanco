@@ -1,3 +1,4 @@
+<router-outlet></router-outlet>
 <section class="container-fluid py-4">
   <!-- ===== Resumo do Cartão ===== -->
   <div class="row g-4 mb-4">
@@ -61,7 +62,6 @@
     </div>
   </div>
 
-  <!-- ===== Últimas Faturas ===== -->
   <div class="card shadow-sm border-0">
     <div class="card-body">
       <h5 class="mb-3">Últimas Faturas</h5>
@@ -102,11 +102,8 @@
   </div>
   <div class="row g-3 align-items-end mb-3">
     <div class="col-2">
-      <button
-        class="btn btn-primary w-100"
-        (click)="routerService.setToPage(Pages.MEUS_CARTOES)"
-      >
-        Visualizar Cartões
+      <button class="btn btn-primary w-100" routerLink="meus-cartoes">
+        Meus Cartões
       </button>
     </div>
   </div>

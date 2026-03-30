@@ -1,0 +1,10 @@
+{
+  "MENU": {
+    "DASHBOARD": "Panel",
+    "EXTRATO": "Extracto",
+    "EMPRESTIMOS": "Préstamos",
+    "INVESTIMENTOS": "Inversiones",
+    "TRANSFERENCIAS": "Transferencias",
+    "CARTOES": "Tarjetas"
+  }
+}
