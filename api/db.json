@@ -3,7 +3,7 @@
     {
       "id": "1",
       "tipo": "corrente",
-      "saldo": 44147.15
+      "saldo": 43147.15
     }
   ],
   "transacoes": [
@@ -78,6 +78,15 @@
       "descricao": "Empréstimo pessoal - R$ 1000.00",
       "contaId": 1,
       "categoria": "emprestimo"
+    },
+    {
+      "id": "fb7e",
+      "data": "2026-03-30T22:40:25.586Z",
+      "tipo": "saída",
+      "valor": 1000,
+      "descricao": "Pix para 127218326178 (Outro) - teste",
+      "contaId": 1,
+      "categoria": "pix"
     }
   ],
   "emprestimos": [
@@ -122,6 +131,7 @@
     {
       "id": "1",
       "numero": "1234 5678 9012 3456",
+      "nome": "Yuri Dellaretti",
       "validade": "12/25",
       "cvv": "123",
       "tipo": "crédito",
@@ -131,5 +141,20 @@
       "limiteTotal": 10000,
       "saldo": 1500
     }
-  ]
+  ], 
+  "DadosUsuario":{
+    "nome": "Yuri Dellaretti",
+    "email": "yurovisky@gmail.com",
+    "telefone": "11987654321",
+    "cpf": "123.456.789-00",
+    "dataNascimento": "1990-01-01",
+    "endereco": {
+      "rua": "Rua Exemplo",
+      "numero": "123",
+      "bairro": "Bairro Exemplo",
+      "cidade": "Cidade Exemplo",
+      "estado": "Estado Exemplo",
+      "cep": "12345-678"
+    }
+  }
 }

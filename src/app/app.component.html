@@ -2,14 +2,12 @@
 
 <div class="container-fluid">
   <div class="row vh-100">
-
-    <div class="col-3 col-md-2 p-0">
+    <div class="col-3 col-md-2 p-0" *ngIf="authService.autenticado()">
       <app-side-bar></app-side-bar>
     </div>
 
-    <div class="col p-0">
+    <div class="p-0" [ngClass]="authService.autenticado() ? 'col' : 'col-12'">
       <app-main-panel></app-main-panel>
     </div>
-
   </div>
 </div>

@@ -1,6 +1,7 @@
 export interface Cartoes {
   id: number;
   numero: string;
+  nome: string;
   validade: string;
   cvv: string;
   tipo: 'credito' | 'debito';

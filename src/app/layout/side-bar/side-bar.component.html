@@ -24,6 +24,14 @@
   <hr />
 
   <div>
-    <button class="btn btn-outline-light w-100">Sair</button>
+    @if (authService.autenticado()) {
+      <button
+        class="btn btn-outline-light w-100"
+        title="Sair"
+        (click)="logout()"
+      >
+        <i class="fa-solid fa-right-from-bracket"></i>Sair
+      </button>
+    }
   </div>
 </div>

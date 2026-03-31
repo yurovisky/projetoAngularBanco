@@ -2,7 +2,6 @@ import { Component, signal, computed, Signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map, catchError, of, tap } from 'rxjs';
-import { Pages } from '../../constants/pages.enum';
 import { ContaService } from '../../core/services/conta/conta.service';
 import { TransacoesService } from '../../core/services/transacoes/transacoes.service';
 import { RouterService } from '../../core/services/router/router.service';
@@ -23,7 +22,7 @@ export class DashboardComponent {
   movimentacoes!: Signal<any[]>;
   entradas!: Signal<number>;
   saidas!: Signal<number>;
-  Pages = Pages;
+
   mensagemErro = signal<string>('');
 
   constructor(

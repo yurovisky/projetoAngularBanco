@@ -1,0 +1,139 @@
+<div class="row g-3">
+  <div *ngIf="perfil() as usuario">
+    <div class="col-md-6">
+      <div
+        class="card shadow-sm border border-2 border-primary rounded-3 h-100"
+      >
+        <div class="card-body">
+          <h5 class="mb-3">Dados do Usuário</h5>
+
+          <div class="row g-3">
+            <div class="col-12">
+              <label class="form-label small text-muted">Nome</label>
+              <input
+                type="text"
+                class="form-control"
+                [value]="usuario.nome"
+                disabled
+              />
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label small text-muted">Email</label>
+              <input
+                type="text"
+                class="form-control"
+                [value]="usuario.email"
+                disabled
+              />
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label small text-muted">Telefone</label>
+              <input
+                type="text"
+                class="form-control"
+                [value]="usuario.telefone"
+                disabled
+              />
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label small text-muted">CPF</label>
+              <input
+                type="text"
+                class="form-control"
+                [value]="usuario.cpf"
+                disabled
+              />
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label small text-muted"
+                >Data de Nascimento</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                [value]="usuario.dataNascimento"
+                disabled
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div
+        class="card shadow-sm border border-2 border-primary rounded-3 h-100"
+      >
+        <div class="card-body">
+          <h5 class="mb-3">Endereço</h5>
+
+          <div class="row g-3">
+            <div class="col-8">
+              <label class="form-label small text-muted">Rua</label>
+              <input
+                type="text"
+                class="form-control"
+                [value]="usuario.endereco.rua"
+                disabled
+              />
+            </div>
+
+            <div class="col-4">
+              <label class="form-label small text-muted">Número</label>
+              <input
+                type="text"
+                class="form-control"
+                [value]="usuario.endereco.numero"
+                disabled
+              />
+            </div>
+
+            <div class="col-12">
+              <label class="form-label small text-muted">Bairro</label>
+              <input
+                type="text"
+                class="form-control"
+                [value]="usuario.endereco.bairro"
+                disabled
+              />
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label small text-muted">Cidade</label>
+              <input
+                type="text"
+                class="form-control"
+                [value]="usuario.endereco.cidade"
+                disabled
+              />
+            </div>
+
+            <div class="col-md-3">
+              <label class="form-label small text-muted">Estado</label>
+              <input
+                type="text"
+                class="form-control"
+                [value]="usuario.endereco.estado"
+                disabled
+              />
+            </div>
+
+            <div class="col-md-3">
+              <label class="form-label small text-muted">CEP</label>
+              <input
+                type="text"
+                class="form-control"
+                [value]="usuario.endereco.cep"
+                disabled
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

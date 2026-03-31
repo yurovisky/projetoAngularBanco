@@ -1,16 +1,24 @@
 import { Component } from '@angular/core';
 import { RouterService } from '../../core/services/router/router.service';
-import { Pages } from '../../constants/pages.enum';
-import { RouterOutlet } from '@angular/router';
-import { RouterModule } from '@angular/router';
+import { RouterOutlet, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { CartoesService } from '../../core/services/cartoes/cartoes.service';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { inject } from '@angular/core';
 
 @Component({
   selector: 'app-cartoes',
-  imports: [RouterOutlet, RouterModule],
+  standalone: true,
+  imports: [RouterOutlet, RouterModule, CommonModule],
   templateUrl: './cartoes.component.html',
   styleUrl: './cartoes.component.css',
 })
 export class CartoesComponent {
-  Pages = Pages;
+  private cartoesService = inject(CartoesService);
+
+  cartoes = toSignal(this.cartoesService.getCartoes(), {
+    initialValue: [],
+  });
+
   constructor(public routerService: RouterService) {}
 }

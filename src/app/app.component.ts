@@ -5,6 +5,8 @@ import { SideBarComponent } from './layout/side-bar/side-bar.component';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
+import { AuthService } from './core/services/autenticacao/auth.service';
+import { inject } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +21,8 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  authService = inject(AuthService);
+
   constructor(private translate: TranslateService) {
     this.translate.setFallbackLang('pt-br');
     this.translate.use('pt-br');

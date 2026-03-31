@@ -99,6 +99,13 @@ export const routes: Routes = [
             (c) => c.TransactionsListComponent,
           ),
       },
+      {
+        path: 'perfil',
+        loadComponent: () =>
+          import('./pages/perfil/perfil.component').then(
+            (c) => c.PerfilComponent,
+          ),
+      },
 
       // redirect interno
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },

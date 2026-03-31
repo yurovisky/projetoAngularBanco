@@ -3,7 +3,7 @@
   <!-- ===== Resumo do Cartão ===== -->
   <div class="row g-4 mb-4">
     <div class="col-md-4">
-      <div class="card shadow-sm border-0">
+      <div class="card shadow-sm border border-2 border-primary rounded-3">
         <div class="card-body">
           <h6 class="text-muted">Limite Total</h6>
           <h4 class="fw-bold">R$ 8.000,00</h4>
@@ -12,7 +12,7 @@
     </div>
 
     <div class="col-md-4">
-      <div class="card shadow-sm border-0">
+      <div class="card shadow-sm border border-2 border-primary rounded-3">
         <div class="card-body">
           <h6 class="text-muted">Valor Utilizado</h6>
           <h4 class="fw-bold text-danger">R$ 2.450,90</h4>
@@ -21,7 +21,7 @@
     </div>
 
     <div class="col-md-4">
-      <div class="card shadow-sm border-0">
+      <div class="card shadow-sm border border-2 border-primary rounded-3">
         <div class="card-body">
           <h6 class="text-muted">Limite Disponível</h6>
           <h4 class="fw-bold text-success">R$ 5.549,10</h4>
@@ -31,32 +31,41 @@
   </div>
 
   <!-- ===== Dados do Cartão ===== -->
-  <div class="card shadow-sm border-0 mb-4">
-    <div class="card-body">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <h5 class="mb-0">Meu Cartão</h5>
-        <span class="badge bg-secondary">Visa Gold</span>
-      </div>
+  <div class="row g-3">
+    <div class="col-md-6" *ngFor="let cartao of cartoes()">
+      <div
+        class="card shadow-sm border border-2 border-primary rounded-3 h-100"
+      >
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="mb-0">Meu Cartão</h5>
 
-      <div class="row g-3">
-        <div class="col-md-6">
-          <small class="text-muted">Número do cartão</small>
-          <div class="fw-semibold">**** **** **** 4587</div>
-        </div>
+            <span class="badge bg-secondary">
+              {{ cartao.bandeira }}
+            </span>
+          </div>
 
-        <div class="col-md-3">
-          <small class="text-muted">Validade</small>
-          <div class="fw-semibold">12/29</div>
-        </div>
+          <div class="row g-3">
+            <div class="col-12">
+              <small class="text-muted">Número do cartão</small>
+              <div class="fw-semibold">
+                **** **** **** {{ cartao.numero.slice(-4) }}
+              </div>
+            </div>
 
-        <div class="col-md-3">
-          <small class="text-muted">Status</small>
-          <div class="fw-semibold text-success">Ativo</div>
-        </div>
-
-        <div class="col-md-6">
-          <small class="text-muted">Titular</small>
-          <div class="fw-semibold">Yuri Tampa</div>
+            <div class="col-4">
+              <small class="text-muted">Validade</small>
+              <div class="fw-semibold">
+                {{ cartao.validade }}
+              </div>
+            </div>
+            <div class="col-4">
+              <small class="text-muted">Titular</small>
+              <div class="fw-semibold">
+                {{ cartao.nome }}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

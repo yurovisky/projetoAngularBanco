@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
+import { AuthService } from '../../core/services/autenticacao/auth.service';
+import { inject } from '@angular/core';
 
 @Component({
   selector: 'app-side-bar',
@@ -11,6 +13,7 @@ import { TranslatePipe } from '@ngx-translate/core';
   styleUrls: ['./side-bar.component.css'],
 })
 export class SideBarComponent {
+  readonly authService = inject(AuthService);
   menuItems = [
     {
       label: 'MENU.DASHBOARD',
@@ -42,5 +45,14 @@ export class SideBarComponent {
       icon: 'fa-solid fa-credit-card',
       route: '/cartoes',
     },
+    {
+      label: 'MENU.PERFIL',
+      icon: 'fa-solid fa-user',
+      route: '/perfil',
+    },
   ];
+
+  logout() {
+    this.authService.logout();
+  }
 }

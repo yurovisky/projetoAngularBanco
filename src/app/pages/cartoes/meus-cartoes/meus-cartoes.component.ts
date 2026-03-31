@@ -137,6 +137,7 @@ export class MeusCartoesComponent implements OnInit {
     const novoCartao: NovoCartao = {
       numero: '1234123456785678',
       validade: '12/28',
+      nome: 'Yuri Dellaretti',
       cvv: '123',
       tipo: formValue.tipo,
       bandeira: formValue.bandeira,
